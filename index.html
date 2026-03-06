@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercer Street Dentistry &mdash; Downtown Toronto</title>
+<meta name="description" content="Mercer Street Dentistry offers compassionate general, cosmetic, and restorative dental care at 22 Mercer St in the heart of downtown Toronto's entertainment district.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:      #FAF8F5;
+  --cream-deep: #F3F0EB;
+  --white:      #FFFFFF;
+  --blue:       var(--brand-primary);
+  --blue-soft:  var(--brand-primary-soft);
+  --stone:      #C8C0B4;
+  --ink:        #1C1916;
+  --body-txt:   #5A534C;
+  --light-txt:  #9E9590;
+  --brand-primary:      #5B8DB8;
+  --brand-primary-soft: #E6EFF6;
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body:    'Jost', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--ff-body); background: var(--cream); color: var(--ink); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+.btn-primary { display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:13px 28px;border-radius:3px;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,transform .15s; }
+.btn-primary:hover { background:#4a7aa6;transform:translateY(-1px); }
+.btn-outline-dark { display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:12px 27px;border-radius:3px;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);cursor:pointer;transition:all .2s; }
+.btn-outline-dark:hover { background:var(--ink);color:#fff; }
+.btn-outline-light { display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;padding:12px 27px;border-radius:3px;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.5);cursor:pointer;transition:all .2s; }
+.btn-outline-light:hover { background:rgba(255,255,255,.1);border-color:#fff; }
+.btn-stone { display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:12px 27px;border-radius:3px;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--stone);cursor:pointer;transition:all .2s; }
+.btn-stone:hover { border-color:var(--ink); }
+.btn-cream { display:inline-flex;align-items:center;gap:8px;background:var(--cream);color:var(--ink);padding:13px 28px;border-radius:3px;font-family:var(--ff-body);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s; }
+.btn-cream:hover { background:#fff; }
+
+header { position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #D6DFE8; }
+.header-inner { max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px; }
+.logo-wrap { display:flex;align-items:center;gap:12px; }
+nav { display:flex;gap:30px; }
+nav a { font-family:var(--ff-body);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--body-txt);transition:color .2s; }
+nav a:hover { color:var(--ink); }
+.header-actions { display:flex;align-items:center;gap:16px; }
+.header-phone { font-family:var(--ff-body);font-size:13px;font-weight:500;color:var(--blue); }
+.hamburger { display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none; }
+.hamburger span { display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px; }
+
+.hero { position:relative;overflow:hidden;min-height:calc(100vh - 72px);display:flex;align-items:center; }
+.hero-img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 65%;z-index:0; }
+.hero-overlay { position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(250,248,245,.94) 0%,rgba(250,248,245,.78) 36%,rgba(250,248,245,.18) 62%,rgba(250,248,245,0) 100%); }
+.hero-content { position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 32px;width:100%; }
+.hero-inner { max-width:520px; }
+.eyebrow { display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:18px; }
+.eyebrow::before { content:'';width:24px;height:1px;background:var(--blue); }
+.hero-h1 { font-family:var(--ff-display);font-size:clamp(44px,5vw,72px);font-weight:400;color:var(--ink);line-height:1.1;letter-spacing:-.01em;margin-bottom:12px; }
+.hero-h1 em { font-style:italic;color:var(--blue); }
+.hero-divider { width:40px;height:1px;background:var(--stone);margin:22px 0; }
+.hero-sub { font-family:var(--ff-body);font-size:15px;font-weight:300;color:var(--body-txt);line-height:1.8;max-width:420px;margin-bottom:36px; }
+.hero-actions { display:flex;gap:14px;flex-wrap:wrap; }
+
+.trust-strip { background:var(--white);border-top:1px solid var(--stone);border-bottom:1px solid var(--stone); }
+.trust-inner { max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:stretch;height:68px; }
+.trust-item { display:flex;align-items:center;gap:10px;flex:1;padding:0 20px;border-right:1px solid var(--stone); }
+.trust-item:first-child { padding-left:0; }
+.trust-item:last-child { border-right:none; }
+.trust-dot { width:5px;height:5px;background:var(--blue);border-radius:50%;flex-shrink:0; }
+.trust-label { font-family:var(--ff-body);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--body-txt);white-space:nowrap; }
+.trust-sub { font-family:var(--ff-body);font-size:11px;font-weight:300;color:var(--light-txt);white-space:nowrap; }
+
+.section { padding:96px 0; }
+.section-title { font-family:var(--ff-display);font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.1;letter-spacing:-.01em;color:var(--ink); }
+.section-title em { font-style:italic; }
+.section-title.light { color:#fff; }
+.section-body { font-family:var(--ff-body);font-size:15px;font-weight:300;color:var(--body-txt);line-height:1.8;max-width:520px;margin-top:16px; }
+.section-divider { width:40px;height:1px;background:var(--stone);margin:20px 0; }
+
+.services-bg { background:var(--cream); }
+.services-hd { display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:24px;flex-wrap:wrap; }
+.services-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone); }
+.service-card { background:var(--white);padding:36px 30px;transition:background .2s; }
+.service-card:hover { background:var(--cream-deep); }
+.service-card:hover .service-arrow { opacity:1;transform:translateX(0); }
+.service-icon { width:36px;height:36px;background:var(--blue-soft);border-radius:50%;display:grid;place-items:center;margin-bottom:20px; }
+.service-icon svg { width:16px;height:16px;color:var(--blue); }
+.service-name { font-family:var(--ff-display);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em; }
+.service-desc { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--body-txt);line-height:1.7; }
+.service-arrow { font-size:14px;color:var(--blue);margin-top:16px;opacity:0;transform:translateX(-4px);transition:all .2s;display:block; }
+
+.why-bg { background:var(--cream-deep); }
+.why-grid { display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:center; }
+.why-img-wrap { position:relative; }
+.why-img-main { width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:2px;display:block; }
+.why-credential { position:absolute;bottom:-20px;right:-20px;background:var(--white);border:1px solid var(--stone);padding:20px 24px;border-radius:2px;box-shadow:0 8px 32px rgba(28,25,22,.08); }
+.why-credential .num { font-family:var(--ff-display);font-size:36px;font-weight:400;color:var(--ink);line-height:1; }
+.why-credential .lbl { font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--light-txt);margin-top:4px; }
+.why-features { margin-top:36px;display:flex;flex-direction:column;gap:0; }
+.why-feat { display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--stone); }
+.why-feat:last-child { border-bottom:none; }
+.why-feat-num { font-family:var(--ff-display);font-size:13px;font-weight:400;color:var(--blue);padding-top:2px;min-width:20px; }
+.why-feat-text strong { font-family:var(--ff-body);font-size:13px;font-weight:500;color:var(--ink);display:block;margin-bottom:4px;letter-spacing:.02em; }
+.why-feat-text span { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--body-txt);line-height:1.65; }
+
+.team-bg { background:var(--white); }
+.team-header { display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;flex-wrap:wrap; }
+.team-carousel-row { display:flex;align-items:flex-start;gap:16px; }
+.team-arr-side { margin-top:calc(33.33% - 22px);flex-shrink:0; }
+.team-scroll-viewport { overflow:hidden;flex:1;min-width:0; }
+.team-track { display:flex;gap:24px;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform; }
+.team-card { flex:0 0 calc(25% - 18px);min-width:0; }
+.team-dots-row { display:flex;justify-content:center;margin-top:28px;gap:6px; }
+.team-dot { width:6px;height:6px;border-radius:50%;background:var(--stone);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s; }
+.team-dot.active { background:var(--blue);transform:scale(1.3); }
+.team-progress { height:2px;background:var(--stone);border-radius:2px;margin-top:14px;overflow:hidden; }
+.team-progress-fill { height:100%;background:var(--blue);border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1); }
+.team-img-wrap { overflow:hidden;border-radius:2px;background:var(--cream-deep);aspect-ratio:2/3;display:flex;align-items:center;justify-content:center; }
+.team-img-wrap img { width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s ease;filter:saturate(.9); }
+.team-card:hover .team-img-wrap img { transform:scale(1.04);filter:saturate(1); }
+.team-info { padding:18px 0 0; }
+.team-name { font-family:var(--ff-display);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:3px; }
+.team-role { font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px; }
+.team-bio { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--body-txt);line-height:1.65; }
+
+.arr-btn { width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--white);border:1px solid var(--stone);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .2s; }
+.arr-btn:hover { border-color:var(--blue);color:var(--blue); }
+.arr-btn svg { width:15px;height:15px; }
+
+.testimonials-bg { background:var(--cream); }
+.testimonials-inner { max-width:1160px;margin:0 auto;padding:96px 32px; }
+.testimonials-hd { margin-bottom:48px; }
+.carousel-outer { position:relative; }
+.carousel-outer::before,.carousel-outer::after { content:'';position:absolute;top:0;bottom:0;width:72px;z-index:2;pointer-events:none; }
+.carousel-outer::before { left:0;background:linear-gradient(to right,var(--cream) 0%,transparent 100%); }
+.carousel-outer::after  { right:0;background:linear-gradient(to left,var(--cream) 0%,transparent 100%); }
+.carousel-viewport { overflow:hidden; }
+.carousel-track { display:flex;will-change:transform; }
+.review-card { flex:0 0 calc(33.333%);min-width:calc(33.333%);padding:0 12px;box-sizing:border-box; }
+.review-card-inner { background:var(--white);border:1px solid var(--stone);border-radius:2px;padding:36px 28px;height:100%;transition:border-color .2s; }
+.review-card-inner:hover { border-color:var(--blue); }
+.stars { color:var(--blue);font-size:13px;letter-spacing:3px;margin-bottom:20px;opacity:.65; }
+.review-text { font-family:var(--ff-display);font-size:17px;font-weight:400;color:var(--ink);line-height:1.75;margin-bottom:24px; }
+.reviewer-divider { width:28px;height:1px;background:var(--stone);margin-bottom:14px; }
+.reviewer-name { font-family:var(--ff-body);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink); }
+.reviewer-source { font-family:var(--ff-body);font-size:11px;font-weight:300;color:var(--light-txt);margin-top:3px; }
+.review-progress { height:2px;background:var(--stone);border-radius:2px;margin-top:32px;overflow:hidden; }
+.review-progress-fill { height:100%;background:var(--blue);border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1);width:20%; }
+.carousel-controls { display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:20px; }
+.carousel-arrows { display:flex;gap:12px; }
+.carousel-google-link { font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--light-txt);display:flex;align-items:center;gap:6px;transition:color .2s; }
+.carousel-google-link:hover { color:var(--blue); }
+
+.contact-bg { background:var(--cream-deep); }
+.contact-grid { display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start; }
+.map-embed { border-radius:2px;overflow:hidden;border:1px solid var(--stone); }
+.map-embed iframe { width:100%;height:380px;border:0;display:block; }
+.contact-block { margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--stone); }
+.contact-block.last { border-bottom:none;margin-bottom:0;padding-bottom:0; }
+.contact-lbl { font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px; }
+.contact-val { font-family:var(--ff-display);font-size:20px;font-weight:500;color:var(--ink);display:block;margin-bottom:4px; }
+.contact-detail { font-family:var(--ff-body);font-size:14px;font-weight:300;color:var(--body-txt);line-height:1.7; }
+.hours-row { display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--stone); }
+.hours-row:last-child { border-bottom:none; }
+.hours-day { font-family:var(--ff-body);font-size:13px;font-weight:400;color:var(--ink); }
+.hours-time { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--body-txt); }
+
+.cta-bg { background:#5B8DB8; }
+.cta-inner { max-width:680px;margin:0 auto;text-align:center;padding:96px 32px; }
+.cta-eyebrow { display:inline-flex;align-items:center;gap:12px;font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px; }
+.cta-eyebrow::before,.cta-eyebrow::after { content:'';width:24px;height:1px;background:rgba(255,255,255,.25); }
+.cta-inner p { font-family:var(--ff-body);font-size:15px;font-weight:300;color:rgba(255,255,255,.6);margin:18px auto 36px;max-width:460px;line-height:1.8; }
+.cta-actions { display:flex;justify-content:center;gap:14px;flex-wrap:wrap; }
+
+footer { background:var(--cream-deep);border-top:1px solid var(--stone);padding:56px 0 32px; }
+.footer-top { display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid var(--stone); }
+.footer-brand p { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--light-txt);line-height:1.8;max-width:260px;margin-top:14px; }
+.footer-col h4 { font-family:var(--ff-body);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--light-txt);margin-bottom:18px; }
+.footer-col ul { list-style:none;display:flex;flex-direction:column;gap:10px; }
+.footer-col ul a { font-family:var(--ff-body);font-size:13px;font-weight:300;color:var(--body-txt);transition:color .2s; }
+.footer-col ul a:hover { color:var(--blue); }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;margin-top:28px;flex-wrap:wrap;gap:10px; }
+.footer-bottom p { font-family:var(--ff-body);font-size:11px;color:var(--light-txt); }
+
+.mobile-nav { position:fixed;inset:0;background:var(--cream);z-index:200;display:flex;flex-direction:column;padding:32px;transform:translateX(100%);transition:transform .3s ease; }
+.mobile-nav.open { transform:translateX(0); }
+.mobile-nav-close { align-self:flex-end;background:none;border:none;cursor:pointer;color:var(--ink);font-size:26px;line-height:1;padding:4px; }
+.mobile-nav ul { list-style:none;margin-top:48px;display:flex;flex-direction:column;gap:28px; }
+.mobile-nav ul li a { font-family:var(--ff-display);font-size:32px;font-weight:400;color:var(--ink); }
+.mobile-nav-cta { margin-top:auto; }
+.mobile-nav-cta .btn-primary { width:100%;justify-content:center;font-size:13px;padding:15px; }
+
+@media (max-width:1024px) {
+  .services-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid { grid-template-columns:1fr;gap:48px; }
+  .why-img-main { aspect-ratio:16/9; }
+  .why-credential { right:0;bottom:-16px; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+  .footer-brand { grid-column:1/-1; }
+  .review-card { flex:0 0 50%;min-width:50%; }
+  .team-card { flex:0 0 calc(50% - 12px); }
+  .team-arr-side { margin-top:calc(50% - 22px); }
+}
+@media (max-width:768px) {
+  nav,.header-phone { display:none; }
+  .hamburger { display:flex; }
+  .hero { min-height:80vh; }
+  .hero-overlay { background:linear-gradient(to bottom,rgba(250,248,245,.95) 0%,rgba(250,248,245,.82) 50%,rgba(250,248,245,.25) 100%); }
+  .hero-content { padding:0 24px; }
+  .hero-inner { max-width:100%; }
+  .trust-inner { height:auto;flex-wrap:wrap;padding:12px 24px; }
+  .trust-item { flex:1 1 48%;border-right:none;border-bottom:1px solid var(--stone);padding:10px 0; }
+  .trust-item:nth-last-child(-n+2) { border-bottom:none; }
+  .services-grid { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr;gap:40px; }
+  .footer-top { grid-template-columns:1fr; }
+  .review-card { flex:0 0 80%;min-width:80%; }
+  .section { padding:64px 0; }
+  .testimonials-inner { padding:64px 24px; }
+  .services-hd,.team-header { flex-direction:column;align-items:flex-start; }
+  .container { padding:0 24px; }
+  .team-card { flex:0 0 75%; }
+  .team-arr-side { display:none; }
+}
+@media (max-width:480px) {
+  .team-card { flex:0 0 85%; }
+  .trust-item { flex:1 1 100%; }
+  .hero-h1 { font-size:40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleNav()">&#x2715;</button>
+  <ul>
+    <li><a href="#services" onclick="toggleNav()">Services</a></li>
+    <li><a href="#why" onclick="toggleNav()">About</a></li>
+    <li><a href="#team" onclick="toggleNav()">Team</a></li>
+    <li><a href="#reviews" onclick="toggleNav()">Reviews</a></li>
+    <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="tel:4162050029" class="btn-primary">Call 416-205-0029</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img
+        src="https://mercerstreetdentistry.com/wp-content/uploads/2025/11/MercerStreetDentistryLogo300x86.jpg"
+        alt="Mercer Street Dentistry"
+        height="40"
+        style="height:40px;width:auto;"
+      >
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">About</a>
+      <a href="#team">Team</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:4162050029" class="header-phone">416-205-0029</a>
+      <a href="#contact" class="btn-primary">Book Appointment</a>
+    </div>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img
+    class="hero-img"
+    src="https://mercerstreetdentistry.com/wp-content/uploads/2025/10/2025_10_09.jpg"
+    alt="Mercer Street Dentistry — welcoming dental office interior, downtown Toronto"
+    width="1300" height="720"
+  >
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="eyebrow">22 Mercer St &middot; Downtown Toronto</div>
+      <h1 class="hero-h1">Compassionate dental care<br><em>in the heart of the city.</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">General, cosmetic, and restorative dentistry steps from the Entertainment District. Our team takes the time to understand your goals — and makes sure you leave every visit feeling informed and at ease.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book an Appointment</a>
+        <a href="tel:4162050029" class="btn-outline-dark">Call 416-205-0029</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-dot"></div><div><div class="trust-label">75+ Google Reviews</div><div class="trust-sub">Rated Excellent</div></div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div><div class="trust-label">Accepting New Patients</div><div class="trust-sub">Book same-week</div></div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div><div class="trust-label">CDCP Accepted</div><div class="trust-sub">Canadian Dental Care Plan</div></div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div><div class="trust-label">Emergency Care</div><div class="trust-sub">Urgent same-day slots</div></div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div><div class="trust-label">ODA Fee Guide</div><div class="trust-sub">Fair, transparent pricing</div></div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services">
+  <div class="container">
+    <div class="services-hd">
+      <div>
+        <div class="eyebrow">What we offer</div>
+        <h2 class="section-title">Full-range care,<br><em>every stage of life.</em></h2>
+      </div>
+      <a href="#contact" class="btn-stone">Book a Consultation</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <div class="service-name">General Dentistry</div>
+        <div class="service-desc">Routine check-ups, customized cleaning schedules, fillings, and gum disease treatment — tailored to your oral health goals and designed to keep problems from developing in the first place.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <div class="service-name">Cosmetic Dentistry</div>
+        <div class="service-desc">Professional whitening and custom porcelain veneers to create a brighter, more uniform smile. We evaluate your individual anatomy to find the option that delivers lasting, natural-looking results.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg></div>
+        <div class="service-name">Dental Implants</div>
+        <div class="service-desc">A long-term solution for missing teeth. We assess candidacy at your visit and discuss all restoration options — implants, crowns, and more — so you can make the right choice for your situation.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="service-name">Invisalign</div>
+        <div class="service-desc">Clear, removable aligners custom-made using 3D imaging. Treats crowding, gaps, overbites, and more — virtually invisible, fully removable, and designed to fit seamlessly into daily life.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="service-name">Emergency Care</div>
+        <div class="service-desc">Broken tooth, lost filling, severe toothache? We keep urgent slots in our schedule and will do our best to see you the same day. Call us as soon as possible — we'll take it from there.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <div class="service-name">TMJ &amp; Sleep Appliances</div>
+        <div class="service-desc">Custom oral appliances for TMJ pain and snoring or mild sleep apnea. We identify the underlying cause and, where needed, coordinate with your sleep specialist to find a lasting solution.</div>
+        <span class="service-arrow">&#8594;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why-bg" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img-wrap">
+        <img
+          class="why-img-main"
+          src="https://mercerstreetdentistry.com/wp-content/uploads/2025/10/2025_10_09b.jpg"
+          alt="Mercer Street Dentistry practice interior"
+          width="600" height="750" loading="lazy"
+        >
+        <div class="why-credential">
+          <div class="num">25+</div>
+          <div class="lbl">Years in practice</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Why patients stay</div>
+        <h2 class="section-title">Care built around<br><em>you, not the clock.</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-body">Located at 22 Mercer St in the heart of downtown Toronto's financial and entertainment district, we've built a practice on open communication and patient-led decisions. Whether you've avoided the dentist for years or just want a second opinion, you'll find a team that listens first.</p>
+        <div class="why-features">
+          <div class="why-feat">
+            <div class="why-feat-num">01</div>
+            <div class="why-feat-text"><strong>Informed decisions, always</strong><span>We walk you through every option — including cost, alternatives, and what happens if you wait — so you're never pressured into a decision you're not sure about.</span></div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-num">02</div>
+            <div class="why-feat-text"><strong>Anxiety-aware approach</strong><span>Fear keeps too many people from the care they need. Our doctors are known for their patience and calm communication. Sedation is available when it helps.</span></div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-num">03</div>
+            <div class="why-feat-text"><strong>Warm, communicative staff</strong><span>From the front desk to the chair, patients consistently note the warmth of our team. We answer questions fully and make sure you leave knowing exactly what comes next.</span></div>
+          </div>
+          <div class="why-feat">
+            <div class="why-feat-num">04</div>
+            <div class="why-feat-text"><strong>Transparent, ODA-aligned fees</strong><span>Our fees follow the current Ontario Dental Association Fee Guide. We work with most major insurance providers and explain your coverage before any treatment begins.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team-bg" id="team">
+  <div class="container">
+    <div class="team-header">
+      <div>
+        <div class="eyebrow">The team</div>
+        <h2 class="section-title">Meet your<br><em>dental partners.</em></h2>
+      </div>
+    </div>
+
+    <div class="team-carousel-row">
+      <button class="arr-btn team-arr-side" id="teamPrev" aria-label="Previous team member">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="team-scroll-viewport">
+        <div class="team-track" id="teamTrack">
+
+          <!-- Dr. Sara Hansen -->
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://mercerstreetdentistry.com/wp-content/uploads/2025/01/team_sara.jpg" alt="Dr. Sara Hansen" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-name">Dr. Sara Hansen</div>
+              <div class="team-role">Dentist &amp; Principal</div>
+              <div class="team-bio">A graduate of Northwestern University Dental School (1998) following studies at McGill, Dr. Hansen has practised in downtown Toronto for over 25 years. Known for her compassion, clear communication, and partnership approach to care. Outside the office she enjoys singing, ceramics, and gardening.</div>
+            </div>
+          </div>
+
+          <!-- Dr. Rachel Park -->
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://mercerstreetdentistry.com/wp-content/uploads/2025/10/drrachel__2025_10_12.jpg" alt="Dr. Rachel Park" loading="lazy">
+            </div>
+            <div class="team-info">
+              <div class="team-name">Dr. Rachel Park</div>
+              <div class="team-role">Dentist</div>
+              <div class="team-bio">DDS from the University of Toronto, Bachelor of Health Sciences (Honours) from McMaster. Dr. Park takes time to build genuine connections with every patient, combining a gentle touch with thorough, personalized care. Off duty she plays tennis and explores new Toronto restaurants.</div>
+            </div>
+          </div>
+
+          <!-- Placeholder: Dental Hygienist -->
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--cream-deep);">
+                <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="#C8C0B4" stroke-width="0.9"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span style="font-family:var(--ff-body);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#C8C0B4">Photo coming soon</span>
+              </div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Dental Hygienist</div>
+              <div class="team-role">Registered Dental Hygienist</div>
+              <div class="team-bio">Our hygiene team brings care and attention to every cleaning appointment — customizing your schedule to support your long-term oral health and making each visit as comfortable as possible.</div>
+            </div>
+          </div>
+
+          <!-- Placeholder: Office Admin -->
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--cream-deep);">
+                <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="#C8C0B4" stroke-width="0.9"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span style="font-family:var(--ff-body);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#C8C0B4">Photo coming soon</span>
+              </div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Office Administrator</div>
+              <div class="team-role">Front Desk &amp; Patient Care</div>
+              <div class="team-bio">The warm, familiar voice when you call and the welcoming face when you arrive. Our front desk team keeps everything running smoothly — from scheduling and insurance questions to making sure every patient feels at home from the moment they walk in.</div>
+            </div>
+          </div>
+
+          <!-- Placeholder: Dental Assistant -->
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--cream-deep);">
+                <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="#C8C0B4" stroke-width="0.9"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                <span style="font-family:var(--ff-body);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#C8C0B4">Photo coming soon</span>
+              </div>
+            </div>
+            <div class="team-info">
+              <div class="team-name">Dental Assistant</div>
+              <div class="team-role">Certified Dental Assistant</div>
+              <div class="team-bio">Working chairside with our dentists to ensure every procedure goes smoothly and every patient feels supported. Our assistants are an essential part of the calm, attentive care Mercer Street Dentistry is known for.</div>
+            </div>
+          </div>
+
+        </div><!-- /team-track -->
+      </div><!-- /team-scroll-viewport -->
+      <button class="arr-btn team-arr-side" id="teamNext" aria-label="Next team member">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div><!-- /team-carousel-row -->
+
+    <div class="team-dots-row" id="teamDots"></div>
+    <div class="team-progress"><div class="team-progress-fill" id="teamProgress"></div></div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg" id="reviews">
+  <div class="testimonials-inner">
+    <div class="testimonials-hd">
+      <div class="eyebrow">Patient reviews</div>
+      <h2 class="section-title">What patients<br><em>are saying.</em></h2>
+    </div>
+
+    <div class="carousel-outer">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="review-card"><div class="review-card-inner"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">I had an excellent experience! The team is incredibly professional, skilled, and knowledgeable. Highly recommend.</p><div class="reviewer-divider"></div><div class="reviewer-name">Randa Rawas</div><div class="reviewer-source">Google Review</div></div></div>
+          <div class="review-card"><div class="review-card-inner"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">I cannot recommend this clinic enough! Everyone was so lovely and extremely helpful. The accommodating and welcoming staff made my experience amazing.</p><div class="reviewer-divider"></div><div class="reviewer-name">G.C.</div><div class="reviewer-source">Google Review</div></div></div>
+          <div class="review-card"><div class="review-card-inner"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">They squeezed me in same day on Christmas Eve after I chipped some teeth that morning. Really saved my holidays and I can't appreciate it enough.</p><div class="reviewer-divider"></div><div class="reviewer-name">Geoff Goldsmith</div><div class="reviewer-source">Google Review</div></div></div>
+          <div class="review-card"><div class="review-card-inner"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Got my cleaning done here, teeth look brand new. Everyone was friendly and made the whole process extremely comfortable. Recommend 11/10.</p><div class="reviewer-divider"></div><div class="reviewer-name">Rafay Rahman</div><div class="reviewer-source">Google Review</div></div></div>
+          <div class="review-card"><div class="review-card-inner"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Dr. Hansen takes the time to explain procedures and answer any questions. Her gentle approach and attention to detail make dental visits much less intimidating. I always leave feeling satisfied with the care I received.</p><div class="reviewer-divider"></div><div class="reviewer-name">Camellia B.</div><div class="reviewer-source">Google Review</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-progress">
+      <div class="review-progress-fill" id="reviewProgress"></div>
+    </div>
+
+    <div class="carousel-controls">
+      <div class="carousel-arrows">
+        <button class="arr-btn" id="carouselPrev" aria-label="Previous review"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="arr-btn" id="carouselNext" aria-label="Next review"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+      <a href="https://maps.app.goo.gl/dBq9gi2oQUjUCZwg6" target="_blank" rel="noopener" class="carousel-google-link">View all reviews on Google Maps &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2 class="section-title">Visit us<br><em>downtown.</em></h2>
+        <div class="section-divider"></div>
+        <div class="contact-block">
+          <div class="contact-lbl">Address</div>
+          <span class="contact-val">22 Mercer Street</span>
+          <div class="contact-detail">Toronto, Ontario, M5V 1H3</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-lbl">Phone</div>
+          <a href="tel:4162050029" class="contact-val" style="color:var(--blue);">416-205-0029</a>
+          <div class="contact-detail">Also: <a href="tel:4162050247" style="color:var(--blue);">416-205-0247</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-lbl">Email</div>
+          <a href="/cdn-cgi/l/email-protection#533a3d353c133e362130362120272136362737363d273a2027212a7d303c3e" class="contact-val" style="color:var(--blue);font-size:16px;"><span class="__cf_email__" data-cfemail="4f262129200f222a3d2c2a3d3c3b3d2a2a3b2b2a213b263c3b3d36612c2022">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-block last">
+          <div class="contact-lbl">Office Hours</div>
+          <div style="margin-top:8px;">
+            <div class="hours-row"><span class="hours-day">Monday &ndash; Tuesday</span><span class="hours-time">9:00 am &ndash; 5:00 pm</span></div>
+            <div class="hours-row"><span class="hours-day">Wednesday &ndash; Friday</span><span class="hours-time">10:00 am &ndash; 5:00 pm</span></div>
+            <div class="hours-row"><span class="hours-day">Saturday &ndash; Sunday</span><span class="hours-time">Closed</span></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
+          <a href="/cdn-cgi/l/email-protection#224b4c444d624f475041475051565047475646474c564b5156505b0c414d4f" class="btn-primary">Request Appointment</a>
+          <a href="tel:4162050029" class="btn-stone">Call Now</a>
+        </div>
+      </div>
+      <div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.0!2d-79.39085!3d43.64671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d8d4e8d5c5%3A0x2b8a5ad7e2a0e4c5!2s22+Mercer+St%2C+Toronto%2C+ON+M5V+1H3!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mercer Street Dentistry — 22 Mercer Street, Toronto" allowfullscreen></iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/dBq9gi2oQUjUCZwg6" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-family:var(--ff-body);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--light-txt);transition:color .2s;" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--light-txt)'">Open in Google Maps &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-bg" style="background:#5B8DB8">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">New patients welcome</div>
+    <h2 class="section-title light">Ready for a dentist<br><em style="color:rgba(255,255,255,.8);">you'll actually look forward to?</em></h2>
+    <p>We're accepting new patients at 22 Mercer St in downtown Toronto. Book online or give us a call — same-week appointments are often available.</p>
+    <div class="cta-actions">
+      <a href="mailto:info@mercerstreetdentistry.com" class="btn-cream">Book Online</a>
+      <a href="tel:4162050029" class="btn-outline-light">Call 416-205-0029</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-wrap">
+          <img
+            src="https://mercerstreetdentistry.com/wp-content/uploads/2025/11/MercerStreetDentistryLogo300x86.jpg"
+            alt="Mercer Street Dentistry"
+            height="32"
+            style="height:32px;width:auto;"
+          >
+        </div>
+        <p>General, cosmetic, and restorative dental care in the heart of downtown Toronto.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Dentistry</a></li>
+          <li><a href="#services">Cosmetic Dentistry</a></li>
+          <li><a href="#services">Dental Implants</a></li>
+          <li><a href="#services">Invisalign</a></li>
+          <li><a href="#services">All Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Clinic</h4>
+        <ul>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#why">Our Office</a></li>
+          <li><a href="#contact">New Patients</a></li>
+          <li><a href="#contact">Book Appointment</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#a7cec9c1c8e7cac2d5c4c2d5d4d3d5c2c2d3c3c2c9d3ced4d3d5de89c4c8ca">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mercer Street Dentistry &bull; 22 Mercer Street, Toronto, ON M5V 1H3 &bull; 416-205-0029</p>
+      <p><a href="https://mercerstreetdentistry.com/privacy-policy/" target="_blank" rel="noopener" style="color:var(--light-txt);">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    var nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+
+    /* ══════════════════════════════════════
+       TEAM CAROUSEL
+       Uses offsetWidth after DOMContentLoaded
+       so card dimensions are available.
+    ══════════════════════════════════════ */
+    (function() {
+      var track      = document.getElementById('teamTrack');
+      var prevBtn    = document.getElementById('teamPrev');
+      var nextBtn    = document.getElementById('teamNext');
+      var dotsEl     = document.getElementById('teamDots');
+      var progFill   = document.getElementById('teamProgress');
+      var TOTAL      = 5;
+      var cur        = 0;
+
+      function vis() { return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 4; }
+      function maxPos() { return Math.max(0, TOTAL - vis()); }
+      function cardW() {
+        var c = track.querySelector('.team-card');
+        return c ? c.offsetWidth + 24 : 0;
+      }
+
+      function updateProgress() {
+        progFill.style.width = ((cur + 1) / (maxPos() + 1) * 100) + '%';
+      }
+
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        var m = maxPos();
+        for (var i = 0; i <= m; i++) {
+          var d = document.createElement('button');
+          d.className = 'team-dot' + (i === cur ? ' active' : '');
+          d.setAttribute('aria-label', 'Slide ' + (i + 1));
+          (function(idx) { d.onclick = function() { goTo(idx); }; })(i);
+          dotsEl.appendChild(d);
+        }
+      }
+      function syncDots() {
+        dotsEl.querySelectorAll('.team-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === cur);
+        });
+      }
+      function goTo(n) {
+        cur = Math.max(0, Math.min(n, maxPos()));
+        track.style.transition = 'transform .45s cubic-bezier(.4,0,.2,1)';
+        track.style.transform  = 'translateX(-' + (cur * cardW()) + 'px)';
+        syncDots();
+        updateProgress();
+      }
+
+      prevBtn.onclick = function() { goTo(cur - 1); };
+      nextBtn.onclick = function() { goTo(cur + 1); };
+
+      var rt;
+      window.addEventListener('resize', function() {
+        clearTimeout(rt);
+        rt = setTimeout(function() {
+          cur = Math.min(cur, maxPos());
+          track.style.transition = 'none';
+          track.style.transform  = 'translateX(-' + (cur * cardW()) + 'px)';
+          buildDots();
+        }, 100);
+      });
+
+      buildDots();
+      goTo(0);
+    })();
+
+    /* ══════════════════════════════════════
+       REVIEWS CAROUSEL — infinite loop
+    ══════════════════════════════════════ */
+    (function() {
+      var track    = document.getElementById('carouselTrack');
+      var prevBtn  = document.getElementById('carouselPrev');
+      var nextBtn  = document.getElementById('carouselNext');
+      var progress = document.getElementById('reviewProgress');
+      var REAL     = 5;
+      var busy     = false;
+      var realIdx  = 0;
+      var ci       = 0;
+
+      function spv() { return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3; }
+      function cardW() { var c = track.querySelector('.review-card'); return c ? c.offsetWidth : 0; }
+
+      function setBar(idx) { progress.style.width = ((idx + 1) / REAL * 100) + '%'; }
+      function setPos(idx, animate) {
+        track.style.transition = animate ? 'transform .5s cubic-bezier(.4,0,.2,1)' : 'none';
+        track.style.transform  = 'translateX(-' + (idx * cardW()) + 'px)';
+      }
+
+      function init() {
+        track.querySelectorAll('.clone').forEach(function(c) { c.parentNode.removeChild(c); });
+        var s    = spv();
+        var orig = track.querySelectorAll('.review-card:not(.clone)');
+        for (var i = REAL - 1; i >= REAL - s; i--) {
+          var cl = orig[i].cloneNode(true); cl.classList.add('clone');
+          track.insertBefore(cl, track.firstChild);
+        }
+        for (var j = 0; j < s; j++) {
+          var cl2 = orig[j].cloneNode(true); cl2.classList.add('clone');
+          track.appendChild(cl2);
+        }
+        ci = s; realIdx = 0;
+        setPos(ci, false);
+        setBar(0);
+      }
+
+      function step(dir) {
+        if (busy) return;
+        busy = true;
+        var s = spv();
+        ci += dir;
+        realIdx = ((realIdx + dir) % REAL + REAL) % REAL;
+        setPos(ci, true);
+        setBar(realIdx);
+        track.addEventListener('transitionend', function h() {
+          track.removeEventListener('transitionend', h);
+          busy = false;
+          if (ci >= REAL + s) { ci = s;            setPos(ci, false); }
+          if (ci <  s)        { ci = REAL + s - 1; setPos(ci, false); }
+        });
+      }
+
+      prevBtn.onclick = function() { step(-1); };
+      nextBtn.onclick = function() { step(1); };
+
+      var rt;
+      window.addEventListener('resize', function() { clearTimeout(rt); rt = setTimeout(init, 120); });
+      init();
+    })();
+
+  }); // end DOMContentLoaded
+</script>
